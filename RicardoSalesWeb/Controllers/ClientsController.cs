@@ -71,10 +71,8 @@ namespace RicardoSalesWeb.Controllers
             }
             return RedirectToAction("Index");
         }
-
-        // POST: ClientsController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+               
+        
         public async Task<ActionResult> Delete(int id)
         {
             try

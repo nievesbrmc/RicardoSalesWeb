@@ -50,7 +50,7 @@ namespace RicardoSalesWeb.Controllers
                                                                                {
                                                                                    ClientProductId = item.ClientProductId,
                                                                                    ClientId = item.ClientId,
-                                                                                   ProductId = item.ClientId,
+                                                                                   ProductId = item.ProductId,
                                                                                    DateInserted = item.DateInserted
                                                                                });
 
@@ -122,7 +122,7 @@ namespace RicardoSalesWeb.Controllers
             try
             {
                 Request.Cookies.TryGetValue("usrData", out string? clientId);
-                if (ModelState.IsValid && int.TryParse(clientId, out int Id))
+                if (int.TryParse(clientId, out int Id))
                 {
                   bool response =  await new BLL.ClientProduct(_configuration).Create(new Entity.ClientProductModel
                     {

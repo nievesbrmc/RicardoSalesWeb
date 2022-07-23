@@ -27,6 +27,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.DateInserted)
             </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -34,9 +35,10 @@
         <tr>
              <td>
                 @Html.DisplayFor(modelItem => item.Branch)
-                @if(item.Active.Value){ <text>Activo</text> }else{<text>Inactivo</text> }
-                @Html.DisplayFor(modelItem => item.DateInserted)
                 </td>
+                <td>@if(item.Active.Value){ <text>Activo</text> }else{<text>Inactivo</text> }</td>
+                <td>@Html.DisplayFor(modelItem => item.DateInserted)</td>
+                
         </tr>}
     </tbody>
 </table>

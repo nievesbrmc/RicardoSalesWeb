@@ -35,7 +35,7 @@ namespace RicardoSalesWeb.Controllers
                             where item.Active == true
                             select new SelectListItem
                             {
-                                Text = item.Address,
+                                Text = item.Branch,
                                 Value = item.StoreId.ToString()
                             }).ToList();
             return View(model);
@@ -48,7 +48,7 @@ namespace RicardoSalesWeb.Controllers
         {
             try
             {
-                if (ModelState.IsValid)
+                if (model.Product!=null)
                 {
                     Entity.ProductModel pmodel = model.Product;
                     int productNew = await new BLL.ProductBusiness(_configuration).Create(pmodel).ConfigureAwait(false);
