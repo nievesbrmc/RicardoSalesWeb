@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Entity.StoreModel>
+
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Tiendas</title>
+</head>
+<body>
+<p>
+    <a asp-action="Create">Agregar Tienda</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+             <th>
+                @Html.DisplayNameFor(model => model.Branch)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateInserted)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+             <td>
+                @Html.DisplayFor(modelItem => item.Branch)
+                @if(item.Active.Value){ <text>Activo</text> }else{<text>Inactivo</text> }
+                @Html.DisplayFor(modelItem => item.DateInserted)
+                </td>
+        </tr>}
+    </tbody>
+</table>
+</body>
+</html>

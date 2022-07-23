@@ -1,0 +1,45 @@
+﻿@model RicardoSalesWeb.Controllers.SalesClientModel
+
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Agregar venta</title>
+</head>
+<body>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Seleccione un producto</label>
+                @Html.DropDownListFor(m=>m.product.ProductId,Model.Products,"Seleccione una producto",new {@class="form-select"})
+            </div>
+            <div class="form-group">
+                <label class="control-label">Seleccione un la tienda</label>
+                @Html.DropDownListFor(m=>m.store.StoreId,Model.Stores,"Seleccione una tienda",new {@class="form-select"})
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Regresar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+</body>
+</html>

@@ -1,0 +1,55 @@
+﻿@model IEnumerable<RicardoSalesWeb.Controllers.SalesClientModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Ventas</title>
+</head>
+<body>
+<p>
+    <a asp-action="Create">Crear venta</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.product.Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.product.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.store.Branch)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SaleDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.product.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.store.Branch)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SaleDate)
+            </td>
+        </tr>}
+    </tbody>
+</table>
+</body>
+</html>
